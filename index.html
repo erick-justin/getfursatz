@@ -8,102 +8,134 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
---teal:#0D9488;--teal-dark:#0F766E;--teal-light:#14B8A6;--teal-bright:#2DD4A8;
+--teal:#0D9488;--teal-dark:#0F766E;--teal-bright:#2DD4A8;
 --dark:#0A0E17;--text:#1A1A2E;--text2:#6B7280;--text3:#9CA3AF;
 --bg:#F8FAFB;--surface:#fff;--divider:#E5E7EB;
 --ig:#E1306C;--tt:#000000;--fb:#1877F2;--story:#FF8C42;
+--static:#6366F1;--motion:#EC4899;--video:#F59E0B;--wa:#25D366;
 }
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
 
-/* Header */
+/* Hero */
 .hero{background:var(--dark);padding:60px 40px 50px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(45,212,168,0.06) 0%,transparent 60%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(45,212,168,0.04) 0%,transparent 60%);pointer-events:none}
-.hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:2}
+.hero-inner{max-width:840px;margin:0 auto;position:relative;z-index:2}
 .hero-badge{display:inline-block;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal-bright);background:rgba(45,212,168,0.1);padding:6px 16px;border-radius:20px;margin-bottom:20px}
 .hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:38px;font-weight:800;color:#fff;line-height:1.2;letter-spacing:-0.5px}
 .hero h1 span{color:var(--teal-bright)}
-.hero p{color:rgba(255,255,255,0.4);font-size:15px;margin-top:12px;max-width:500px}
-.hero-meta{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap}
-.hero-stat{display:flex;flex-direction:column}
-.hero-stat .num{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;color:var(--teal-bright)}
-.hero-stat .label{font-size:11px;color:rgba(255,255,255,0.3);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-top:2px}
+.hero p{color:rgba(255,255,255,0.4);font-size:15px;margin-top:12px;max-width:540px}
+.hero-stats{display:flex;gap:20px;margin-top:28px;flex-wrap:wrap}
+.hero-stat{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px 18px;text-align:center;min-width:80px}
+.hero-stat .num{font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:800;color:var(--teal-bright)}
+.hero-stat .label{font-size:10px;color:rgba(255,255,255,0.3);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-top:2px}
+
+/* Tools bar */
+.tools-bar{background:var(--surface);border-bottom:1px solid var(--divider);padding:20px 40px}
+.tools-inner{max-width:840px;margin:0 auto}
+.tools-inner h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;margin-bottom:12px}
+.tools-row{display:flex;gap:10px;flex-wrap:wrap}
+.tool-chip{display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:8px;border:1px solid var(--divider);font-size:12px;font-weight:600}
+.tool-chip .tool-badge{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.tool-chip .tool-use{font-size:11px;color:var(--text3);font-weight:400;margin-left:4px}
+
+/* Content type legend */
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;padding:16px;background:var(--surface);border-radius:10px;border:1px solid var(--divider)}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--text2)}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
 
 /* Main */
-.main{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+.main{max-width:840px;margin:0 auto;padding:32px 24px 80px}
 
 /* Day card */
-.day-card{margin-bottom:32px;background:var(--surface);border-radius:16px;border:1px solid var(--divider);overflow:hidden}
-.day-header{padding:20px 28px;display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--divider)}
-.day-num{width:52px;height:52px;border-radius:12px;background:var(--dark);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.day-num span{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;color:var(--teal-bright)}
-.day-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--text)}
-.day-subtitle{font-size:13px;color:var(--text3);margin-top:2px}
-.day-body{padding:24px 28px}
+.day-card{margin-bottom:28px;background:var(--surface);border-radius:16px;border:1px solid var(--divider);overflow:hidden}
+.day-header{padding:18px 28px;display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--divider)}
+.day-num{width:48px;height:48px;border-radius:12px;background:var(--dark);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.day-num span{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:var(--teal-bright)}
+.day-info{flex:1}
+.day-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;color:var(--text)}
+.day-subtitle{font-size:12px;color:var(--text3);margin-top:2px}
+.day-types{display:flex;gap:4px;flex-wrap:wrap}
+.day-type{font-size:9px;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:0.5px;text-transform:uppercase}
+.day-type.static{background:rgba(99,102,241,0.08);color:var(--static)}
+.day-type.motion{background:rgba(236,72,153,0.08);color:var(--motion)}
+.day-type.video{background:rgba(245,158,11,0.08);color:var(--video)}
+.day-type.stories{background:rgba(255,140,66,0.08);color:var(--story)}
+.day-body{padding:22px 28px}
 
-/* Post block */
-.post{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(0,0,0,0.04)}
+/* Post */
+.post{margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid rgba(0,0,0,0.04)}
 .post:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
-.post-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.platform{font-size:10px;font-weight:700;letter-spacing:0.5px;padding:4px 10px;border-radius:6px;text-transform:uppercase}
+.post-header{display:flex;align-items:center;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.platform{font-size:9px;font-weight:700;letter-spacing:0.5px;padding:3px 8px;border-radius:5px;text-transform:uppercase}
 .platform.ig{background:rgba(225,48,108,0.08);color:var(--ig)}
 .platform.tt{background:rgba(0,0,0,0.05);color:#333}
 .platform.fb{background:rgba(24,119,242,0.06);color:var(--fb)}
 .platform.story{background:rgba(255,140,66,0.08);color:var(--story)}
-.platform.wa{background:rgba(37,211,102,0.08);color:#25D366}
-.post-type{font-size:11px;color:var(--text3);font-weight:500;margin-left:4px}
+.platform.wa{background:rgba(37,211,102,0.08);color:var(--wa)}
+.content-type{font-size:9px;font-weight:700;padding:3px 8px;border-radius:5px;letter-spacing:0.5px;text-transform:uppercase}
+.content-type.static{background:rgba(99,102,241,0.08);color:var(--static)}
+.content-type.motion{background:rgba(236,72,153,0.08);color:var(--motion)}
+.content-type.video{background:rgba(245,158,11,0.08);color:var(--video)}
+.post-label{font-size:11px;color:var(--text3);font-weight:500;margin-left:2px}
 
-.post-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px}
-.post-desc{font-size:13.5px;color:var(--text2);line-height:1.6;margin-bottom:12px}
+.post-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px}
+.post-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:10px}
+
+/* Design ref */
+.design-ref{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--static);background:rgba(99,102,241,0.06);padding:4px 10px;border-radius:6px;margin-bottom:10px}
 
 /* Caption box */
-.caption-box{background:var(--bg);border:1px solid var(--divider);border-radius:10px;padding:16px;position:relative}
-.caption-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.caption-text{font-size:13px;color:var(--text);line-height:1.7;white-space:pre-wrap;font-family:'DM Sans',sans-serif}
-.caption-text .hashtags{color:var(--teal);font-size:12px}
-.copy-btn{position:absolute;top:12px;right:12px;padding:5px 12px;border-radius:6px;border:1px solid var(--divider);background:var(--surface);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;cursor:pointer;color:var(--text2);transition:all 0.15s}
+.caption-box{background:var(--bg);border:1px solid var(--divider);border-radius:10px;padding:14px;position:relative;margin-top:8px}
+.caption-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.caption-text{font-size:12.5px;color:var(--text);line-height:1.7;white-space:pre-wrap}
+.caption-text .hashtags{color:var(--teal);font-size:11.5px}
+.copy-btn{position:absolute;top:10px;right:10px;padding:4px 10px;border-radius:5px;border:1px solid var(--divider);background:var(--surface);font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;cursor:pointer;color:var(--text3);transition:all 0.15s}
 .copy-btn:hover{border-color:var(--teal);color:var(--teal)}
 .copy-btn.copied{background:var(--teal);color:#fff;border-color:var(--teal)}
 
-/* Script box */
-.script-box{background:rgba(0,0,0,0.02);border:1px solid var(--divider);border-radius:10px;padding:16px;margin-top:10px}
-.script-box .script-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tt);margin-bottom:8px}
-.script-box .script-text{font-size:12.5px;color:var(--text2);line-height:1.7;white-space:pre-wrap}
+/* Storyboard */
+.storyboard{background:rgba(236,72,153,0.02);border:1px solid rgba(236,72,153,0.1);border-radius:10px;padding:14px;margin-top:8px}
+.storyboard-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--motion);margin-bottom:8px}
+.storyboard-text{font-size:12px;color:var(--text2);line-height:1.7;white-space:pre-wrap}
+.frame{display:flex;gap:8px;margin-bottom:8px;padding:8px 10px;background:rgba(0,0,0,0.02);border-radius:6px;font-size:12px}
+.frame-time{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:var(--motion);white-space:nowrap;min-width:48px;font-size:11px}
+.frame-desc{color:var(--text2);line-height:1.5}
+.frame-desc strong{color:var(--text);font-weight:600}
+
+/* Video script */
+.script-box{background:rgba(245,158,11,0.03);border:1px solid rgba(245,158,11,0.1);border-radius:10px;padding:14px;margin-top:8px}
+.script-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--video);margin-bottom:8px}
+.script-text{font-size:12px;color:var(--text2);line-height:1.7;white-space:pre-wrap}
 
 /* Story cards */
-.stories-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-.story-card{flex:1;min-width:140px;background:linear-gradient(135deg,rgba(255,140,66,0.04),rgba(225,48,108,0.04));border:1px solid rgba(225,48,108,0.08);border-radius:10px;padding:12px;font-size:12px;color:var(--text2);line-height:1.5}
-.story-card strong{display:block;font-size:11px;color:var(--ig);margin-bottom:4px;font-weight:700}
+.stories-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.story-card{flex:1;min-width:130px;background:linear-gradient(135deg,rgba(255,140,66,0.03),rgba(225,48,108,0.03));border:1px solid rgba(225,48,108,0.06);border-radius:8px;padding:10px;font-size:11.5px;color:var(--text2);line-height:1.5}
+.story-card strong{display:block;font-size:10px;color:var(--ig);margin-bottom:3px;font-weight:700}
 
-/* Tips section */
-.tips-section{background:var(--dark);border-radius:16px;padding:32px;margin-top:40px;color:#fff}
-.tips-section h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--teal-bright);margin-bottom:16px}
-.tip-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.tip-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px}
-.tip-item h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:6px}
-.tip-item p{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.5}
+/* Tips */
+.tips-section{background:var(--dark);border-radius:16px;padding:28px;margin-top:36px;color:#fff}
+.tips-section h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:var(--teal-bright);margin-bottom:14px}
+.tip-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tip-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px}
+.tip-item h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:4px}
+.tip-item p{font-size:11.5px;color:rgba(255,255,255,0.4);line-height:1.5}
 
-/* Hashtag section */
-.hashtag-section{background:var(--surface);border:1px solid var(--divider);border-radius:16px;padding:28px;margin-top:24px}
-.hashtag-section h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;margin-bottom:12px}
-.hashtag-group{margin-bottom:12px}
-.hashtag-group .group-label{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.hashtag-tags{display:flex;gap:6px;flex-wrap:wrap}
-.htag{font-size:12px;padding:4px 10px;border-radius:6px;background:rgba(13,148,136,0.06);color:var(--teal);font-weight:500;cursor:pointer;transition:all 0.15s;border:none;font-family:'DM Sans',sans-serif}
+/* Hashtags */
+.hashtag-section{background:var(--surface);border:1px solid var(--divider);border-radius:16px;padding:24px;margin-top:20px}
+.hashtag-section h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;margin-bottom:10px}
+.hashtag-group{margin-bottom:10px}
+.hashtag-group .group-label{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.hashtag-tags{display:flex;gap:5px;flex-wrap:wrap}
+.htag{font-size:11px;padding:3px 8px;border-radius:5px;background:rgba(13,148,136,0.06);color:var(--teal);font-weight:500;cursor:pointer;transition:all 0.15s;border:none;font-family:'DM Sans',sans-serif}
 .htag:hover{background:rgba(13,148,136,0.12)}
 
-/* Print */
-@media print{
-.hero{padding:30px 20px 25px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.copy-btn{display:none}
-.day-card{break-inside:avoid;page-break-inside:avoid}
-}
+.launch-highlight{border:2px solid var(--teal)}
+.launch-highlight .day-header{background:rgba(13,148,136,0.03)}
+
+@media print{.copy-btn{display:none}.day-card{break-inside:avoid}}
 @media(max-width:640px){
-.hero h1{font-size:28px}
-.hero-meta{gap:16px}
-.tip-grid{grid-template-columns:1fr}
-.main{padding:20px 12px 40px}
-.day-body{padding:16px 18px}
+.hero h1{font-size:28px}.hero-stats{gap:10px}.tip-grid{grid-template-columns:1fr}
+.main{padding:16px 12px 40px}.day-body{padding:14px 16px}
 }
 </style>
 </head>
@@ -113,30 +145,54 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 <div class="hero-inner">
 <div class="hero-badge">Pre-Launch Campaign</div>
 <h1>GetFursa<br>10-Day <span>Content Plan</span></h1>
-<p>Day-by-day posting schedule across Instagram, TikTok, and Facebook. Every caption, TikTok script, and Story idea — ready to execute.</p>
-<div class="hero-meta">
-<div class="hero-stat"><span class="num">10</span><span class="label">Feed Posts</span></div>
-<div class="hero-stat"><span class="num">10</span><span class="label">TikToks</span></div>
+<p>Balanced mix of static posters, motion graphics, and video content across Instagram, TikTok, and Facebook.</p>
+<div class="hero-stats">
+<div class="hero-stat"><span class="num">6</span><span class="label">Static Posts</span></div>
+<div class="hero-stat"><span class="num">7</span><span class="label">Motion Graphics</span></div>
+<div class="hero-stat"><span class="num">3</span><span class="label">Videos</span></div>
 <div class="hero-stat"><span class="num">27</span><span class="label">Stories</span></div>
 <div class="hero-stat"><span class="num">3</span><span class="label">Platforms</span></div>
 </div>
 </div>
 </div>
 
+<!-- Tools -->
+<div class="tools-bar">
+<div class="tools-inner">
+<h3>Tools You'll Need (all free)</h3>
+<div class="tools-row">
+<div class="tool-chip"><span class="tool-badge" style="background:var(--static)"></span><strong>Content Studio</strong><span class="tool-use">— static posters (the HTML tool you have)</span></div>
+<div class="tool-chip"><span class="tool-badge" style="background:var(--motion)"></span><strong>CapCut Desktop</strong><span class="tool-use">— motion graphics & text animations (capcut.com)</span></div>
+<div class="tool-chip"><span class="tool-badge" style="background:var(--video)"></span><strong>Phone Camera</strong><span class="tool-use">— on-camera videos (only 3 needed)</span></div>
+<div class="tool-chip"><span class="tool-badge" style="background:var(--ig)"></span><strong>ChatGPT</strong><span class="tool-use">— poster designs from your design prompts</span></div>
+</div>
+</div>
+</div>
+
 <div class="main">
+
+<!-- Legend -->
+<div class="legend">
+<div class="legend-item"><span class="legend-dot" style="background:var(--static)"></span>Static Poster</div>
+<div class="legend-item"><span class="legend-dot" style="background:var(--motion)"></span>Motion Graphic</div>
+<div class="legend-item"><span class="legend-dot" style="background:var(--video)"></span>On-Camera Video</div>
+<div class="legend-item"><span class="legend-dot" style="background:var(--story)"></span>Story</div>
+</div>
 
 <!-- DAY 1 -->
 <div class="day-card">
 <div class="day-header">
 <div class="day-num"><span>01</span></div>
-<div><div class="day-title">Setup & Announce</div><div class="day-subtitle">Create accounts, first post, build presence</div></div>
+<div class="day-info"><div class="day-title">Setup & Announce</div><div class="day-subtitle">Create accounts, first impressions</div></div>
+<div class="day-types"><span class="day-type static">Static</span><span class="day-type motion">Motion</span><span class="day-type stories">Stories</span></div>
 </div>
 <div class="day-body">
 
 <div class="post">
-<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="post-type">Feed Post</span></div>
+<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="content-type static">Static Poster</span></div>
 <div class="post-title">Coming Soon Announcement</div>
-<div class="post-desc">Use the "Coming Soon" poster design. First impression — make it count.</div>
+<div class="design-ref">🎨 Use: Coming Soon poster from Content Studio or ChatGPT</div>
+<div class="post-desc">Your first post. Clean, teal, logo front and center. Set the tone.</div>
 <div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">Job searching in Tanzania is about to change.
@@ -152,21 +208,18 @@ Follow us so you don't miss launch day.
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform tt">TikTok</span><span class="post-type">Video · 15 sec</span></div>
-<div class="post-title">Bad Job Sites Reveal</div>
-<div class="post-desc">Screen record switching between tabs of Ajiriwa, JobwebTanzania, Mabumbe — showing slow loads and bad mobile UI.</div>
-<div class="script-box">
-<div class="script-label">🎬 Script</div>
-<div class="script-text">[Screen recording: rapidly switching between 5 job site tabs, each loading slowly with terrible mobile UI]
-
-Text slide 1: "Job searching in Tanzania right now"
-Text slide 2: "5 websites. All terrible on mobile."
-Text slide 3: "We're fixing this."
-Text slide 4: "GetFursa. Coming soon."
-
-Audio: trending "reveal" or "glow up" sound</div>
+<div class="post-header"><span class="platform tt">TikTok</span><span class="content-type motion">Motion Graphic</span><span class="post-label">15 sec</span></div>
+<div class="post-title">Text Reveal — "Something is Coming"</div>
+<div class="post-desc">No camera needed. Pure text animation in CapCut with trending audio.</div>
+<div class="storyboard">
+<div class="storyboard-label">🎬 CapCut Storyboard</div>
+<div class="frame"><span class="frame-time">0-2s</span><span class="frame-desc"><strong>Black screen.</strong> Text fades in: "Job searching in Tanzania..." — white text, centered</span></div>
+<div class="frame"><span class="frame-time">2-4s</span><span class="frame-desc"><strong>Glitch transition.</strong> Screen recordings of bad job sites flashing quickly (screenshot montage)</span></div>
+<div class="frame"><span class="frame-time">4-7s</span><span class="frame-desc"><strong>Text slam:</strong> "5 websites." then "All terrible on mobile." — each line slams in with scale animation</span></div>
+<div class="frame"><span class="frame-time">7-10s</span><span class="frame-desc"><strong>Teal background fades in.</strong> Text: "There's a better way." — smooth fade</span></div>
+<div class="frame"><span class="frame-time">10-15s</span><span class="frame-desc"><strong>GetFursa logo</strong> scales up from center. Text below: "Coming Soon" — hold 3 seconds</span></div>
 </div>
-<div class="caption-box" style="margin-top:10px">
+<div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">It's 2026 and we're still searching for jobs on websites from 2010 😭 Not for long.
 
@@ -175,11 +228,11 @@ Audio: trending "reveal" or "glow up" sound</div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform story">Stories</span><span class="post-type">3 Stories</span></div>
+<div class="post-header"><span class="platform story">Stories</span><span class="post-label">3 Stories</span></div>
 <div class="stories-row">
 <div class="story-card"><strong>Story 1</strong>GetFursa logo on teal background. Text: "Something is coming 👀"</div>
-<div class="story-card"><strong>Story 2</strong>Screenshot of your phone with 5 job site tabs open. Text: "This is how Tanzanians search for jobs right now."</div>
-<div class="story-card"><strong>Story 3</strong>"Turn on notifications 🔔 so you don't miss our launch" — use Reminder sticker</div>
+<div class="story-card"><strong>Story 2</strong>Screenshot of phone with 5 job site tabs open. Text: "This is how Tanzanians search for jobs."</div>
+<div class="story-card"><strong>Story 3</strong>"Turn on notifications 🔔" — use Reminder sticker</div>
 </div>
 </div>
 
@@ -190,14 +243,15 @@ Audio: trending "reveal" or "glow up" sound</div>
 <div class="day-card">
 <div class="day-header">
 <div class="day-num"><span>02</span></div>
-<div><div class="day-title">Build Curiosity</div><div class="day-subtitle">Behind-the-scenes, show you're building something real</div></div>
+<div class="day-info"><div class="day-title">Build Curiosity</div><div class="day-subtitle">Show you're building something real</div></div>
+<div class="day-types"><span class="day-type static">Static</span><span class="day-type motion">Motion</span><span class="day-type stories">Stories</span></div>
 </div>
 <div class="day-body">
 
 <div class="post">
-<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="post-type">Feed Post</span></div>
-<div class="post-title">Behind the Scenes — Building the App</div>
-<div class="post-desc">Photo or screenshot of your code editor or Flutter app running on a phone.</div>
+<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="content-type static">Static Poster</span></div>
+<div class="post-title">Behind the Scenes Screenshot</div>
+<div class="post-desc">Screenshot of VS Code + phone with app running. Or a photo of your desk setup. Authentic, not polished.</div>
 <div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">Day 2 of building something Tanzania's job market has never seen.
@@ -211,34 +265,31 @@ Stay tuned 👀
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform tt">TikTok</span><span class="post-type">Video · 20 sec</span></div>
-<div class="post-title">POV: Building a Job App</div>
-<div class="script-box">
-<div class="script-label">🎬 Script</div>
-<div class="script-text">[POV: your laptop screen. VS Code open with Flutter code. Phone next to laptop showing app running.]
-
-Text: "POV: You're building a job search app for Tanzania"
-
-[Quick cuts: typing code → app refreshing → job cards loading on phone]
-
-Text: "Because 50M+ people deserve better than what exists"
-
-Audio: Trending motivational or chill lo-fi beat</div>
+<div class="post-header"><span class="platform tt">TikTok</span><span class="content-type motion">Motion Graphic</span><span class="post-label">20 sec</span></div>
+<div class="post-title">Code-to-App Transformation</div>
+<div class="post-desc">Screenshot montage with zoom/pan animations. No camera.</div>
+<div class="storyboard">
+<div class="storyboard-label">🎬 CapCut Storyboard</div>
+<div class="frame"><span class="frame-time">0-3s</span><span class="frame-desc"><strong>Text overlay on dark bg:</strong> "POV: You're building a job app for 50M+ people" — typewriter effect</span></div>
+<div class="frame"><span class="frame-time">3-7s</span><span class="frame-desc"><strong>Screenshot of code editor</strong> — slow zoom into Flutter widget code with ken burns pan effect</span></div>
+<div class="frame"><span class="frame-time">7-12s</span><span class="frame-desc"><strong>Wipe transition</strong> to phone screenshot of app home screen — zoom in on job cards</span></div>
+<div class="frame"><span class="frame-time">12-16s</span><span class="frame-desc"><strong>Split screen:</strong> code on left, app on right — both with subtle drift animation</span></div>
+<div class="frame"><span class="frame-time">16-20s</span><span class="frame-desc"><strong>Logo reveal.</strong> Text: "GetFursa · Coming Soon" — scale up with glow</span></div>
 </div>
-<div class="caption-box" style="margin-top:10px">
+<div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
-<div class="caption-text">Building in public. Day 2. 🛠️ The app Tanzania didn't know it needed.
+<div class="caption-text">From code to app. Building in public 🛠️
 
 <span class="hashtags">#GetFursa #BuildInPublic #Flutter #DevLife #CareerTok</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform story">Stories</span><span class="post-type">3 Stories</span></div>
+<div class="post-header"><span class="platform story">Stories</span><span class="post-label">3 Stories</span></div>
 <div class="stories-row">
-<div class="story-card"><strong>Story 1</strong>Boomerang or clip of you coding. Text: "Late nights building GetFursa 🌙"</div>
+<div class="story-card"><strong>Story 1</strong>Boomerang of you typing code or tapping phone. Text: "Late nights building GetFursa 🌙"</div>
 <div class="story-card"><strong>Story 2</strong>Poll sticker: "Do you search for jobs on your phone?" Yes / No</div>
-<div class="story-card"><strong>Story 3</strong>Quick screenshot of app home screen in progress. Text: "Sneak peek 👀"</div>
+<div class="story-card"><strong>Story 3</strong>App home screen screenshot. Text: "Sneak peek 👀"</div>
 </div>
 </div>
 
@@ -249,14 +300,16 @@ Audio: Trending motivational or chill lo-fi beat</div>
 <div class="day-card">
 <div class="day-header">
 <div class="day-num"><span>03</span></div>
-<div><div class="day-title">The Problem</div><div class="day-subtitle">Highlight pain points, introduce the solution</div></div>
+<div class="day-info"><div class="day-title">The Problem</div><div class="day-subtitle">Highlight pain points, introduce the solution</div></div>
+<div class="day-types"><span class="day-type static">Static</span><span class="day-type motion">Motion</span><span class="day-type stories">Stories</span></div>
 </div>
 <div class="day-body">
 
 <div class="post">
-<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="post-type">Carousel · 2 slides</span></div>
+<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="content-type static">Static Carousel</span><span class="post-label">2 slides</span></div>
 <div class="post-title">Pain Point Carousel — Problem → Solution</div>
-<div class="post-desc">Slide 1: "The Problem" dark poster with 3 pain points. Slide 2: "The Solution" with phone mockup and 3 benefits.</div>
+<div class="design-ref">🎨 Use: Pain Point poster designs from ChatGPT (slides 1 & 2)</div>
+<div class="post-desc">Slide 1: Dark bg, 3 pain points with red X marks. Slide 2: Phone mockup with 3 benefits.</div>
 <div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">How many tabs do you have open right now looking for a job? 😅
@@ -272,42 +325,35 @@ GetFursa puts every job in Tanzania in one beautiful app.
 
 Coming soon. Follow @getfursa 🚀
 
-<span class="hashtags">#GetFursa #JobsTanzania #KaziTanzania #JobSearch #HiringTanzania #CareerTZ</span></div>
+<span class="hashtags">#GetFursa #JobsTanzania #KaziTanzania #JobSearch #HiringTanzania</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform tt">TikTok</span><span class="post-type">Video · 15-20 sec</span></div>
-<div class="post-title">Frustrated → Built My Own App</div>
-<div class="script-box">
-<div class="script-label">🎬 Script</div>
-<div class="script-text">[You sitting at desk, frustrated face]
-Text: "Me trying to find a job in Tanzania"
-
-[Quick cuts of opening different job sites on phone — loading forever, terrible UI, popup ads]
-
-[Frustrated face → then smirk]
-Text: "So I built my own app"
-
-[Show GetFursa running on phone — clean, smooth scrolling]
-Text: "GetFursa. Coming soon."
-
-Audio: Trending frustrated-to-flex audio</div>
+<div class="post-header"><span class="platform tt">TikTok</span><span class="content-type motion">Motion Graphic</span><span class="post-label">15 sec</span></div>
+<div class="post-title">Pain Points Slam Text</div>
+<div class="storyboard">
+<div class="storyboard-label">🎬 CapCut Storyboard</div>
+<div class="frame"><span class="frame-time">0-2s</span><span class="frame-desc"><strong>Dark bg.</strong> Text types in: "Searching for jobs in Tanzania?"</span></div>
+<div class="frame"><span class="frame-time">2-5s</span><span class="frame-desc"><strong>Red ❌ slams in</strong> with each line: "5+ websites" → "No apps" → "Outdated listings" — each with bass hit sound</span></div>
+<div class="frame"><span class="frame-time">5-8s</span><span class="frame-desc"><strong>Pause.</strong> Text fades. Teal gradient sweeps in from left.</span></div>
+<div class="frame"><span class="frame-time">8-12s</span><span class="frame-desc"><strong>Teal bg.</strong> Text: "There's a better way" + ✓ checkmarks with benefits — smooth fade each</span></div>
+<div class="frame"><span class="frame-time">12-15s</span><span class="frame-desc"><strong>GetFursa logo</strong> + "Coming Soon" — hold</span></div>
 </div>
-<div class="caption-box" style="margin-top:10px">
+<div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">When the job sites are so bad you build your own app 😤→😏
 
-<span class="hashtags">#GetFursa #JobSearch #Tanzania #CareerTok #TanzaniaJobs</span></div>
+<span class="hashtags">#GetFursa #JobSearch #Tanzania #CareerTok</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform story">Stories</span><span class="post-type">3 Stories</span></div>
+<div class="post-header"><span class="platform story">Stories</span><span class="post-label">3 Stories</span></div>
 <div class="stories-row">
-<div class="story-card"><strong>Story 1</strong>Poll sticker: "What's the hardest part of finding a job in Tanzania?" — use the poll poster design</div>
-<div class="story-card"><strong>Story 2</strong>Share poll results after a few hours. Text: "We hear you. That's exactly why we're building GetFursa."</div>
-<div class="story-card"><strong>Story 3</strong>Reshare feed carousel post. Text: "Tag someone who needs this 👇"</div>
+<div class="story-card"><strong>Story 1</strong>Poll: "What's the hardest part of finding a job in Tanzania?" — 4 options</div>
+<div class="story-card"><strong>Story 2</strong>Share poll results. Text: "We hear you. That's why we're building GetFursa."</div>
+<div class="story-card"><strong>Story 3</strong>Reshare carousel. Text: "Tag someone who needs this 👇"</div>
 </div>
 </div>
 
@@ -318,14 +364,15 @@ Audio: Trending frustrated-to-flex audio</div>
 <div class="day-card">
 <div class="day-header">
 <div class="day-num"><span>04</span></div>
-<div><div class="day-title">Features Tease</div><div class="day-subtitle">Show what makes GetFursa different</div></div>
+<div class="day-info"><div class="day-title">Features Tease</div><div class="day-subtitle">Show what makes GetFursa different</div></div>
+<div class="day-types"><span class="day-type static">Static</span><span class="day-type motion">Motion</span><span class="day-type stories">Stories</span></div>
 </div>
 <div class="day-body">
 
 <div class="post">
-<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="post-type">Feed Post</span></div>
+<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="content-type static">Static Poster</span></div>
 <div class="post-title">Job Card UI Showcase</div>
-<div class="post-desc">Phone mockup showing the job card design. Highlight salary visibility, clean layout.</div>
+<div class="design-ref">🎨 Use: ChatGPT — phone mockup showing job card design</div>
 <div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">Job cards that actually tell you what you need to know.
@@ -340,25 +387,22 @@ No clutter. No ads. Just jobs.
 
 GetFursa — coming soon 🇹🇿
 
-<span class="hashtags">#GetFursa #JobsTanzania #AppDesign #UXDesign #KaziTanzania #CareerTZ</span></div>
+<span class="hashtags">#GetFursa #JobsTanzania #AppDesign #KaziTanzania #CareerTZ</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform tt">TikTok</span><span class="post-type">Video · 25 sec</span></div>
-<div class="post-title">3 Things No Job Site Does</div>
-<div class="script-box">
-<div class="script-label">🎬 Script</div>
-<div class="script-text">Text: "3 things GetFursa does that no job site in Tanzania does"
-
-[Hold up 1 finger] "1. Shows salary upfront" → show app screenshot
-[Hold up 2 fingers] "2. Builds your CV for you" → show CV builder
-[Hold up 3 fingers] "3. Notifies you when new jobs match" → show notifications
-
-Text: "Follow for launch date 🚀"
-Audio: Trending counting/list audio</div>
+<div class="post-header"><span class="platform tt">TikTok</span><span class="content-type motion">Motion Graphic</span><span class="post-label">20 sec</span></div>
+<div class="post-title">3 Features Countdown</div>
+<div class="storyboard">
+<div class="storyboard-label">🎬 CapCut Storyboard</div>
+<div class="frame"><span class="frame-time">0-2s</span><span class="frame-desc"><strong>Dark bg.</strong> Text: "3 things GetFursa does that no job site in Tanzania does" — bold white</span></div>
+<div class="frame"><span class="frame-time">2-7s</span><span class="frame-desc"><strong>Big "1"</strong> slams in → "Shows salary upfront" + screenshot of job card with salary highlighted — zoom/pan on the salary</span></div>
+<div class="frame"><span class="frame-time">7-12s</span><span class="frame-desc"><strong>Big "2"</strong> slams in → "Builds your CV for you" + screenshot of CV builder step — slide transition</span></div>
+<div class="frame"><span class="frame-time">12-17s</span><span class="frame-desc"><strong>Big "3"</strong> slams in → "Notifies you on new matches" + notification screen screenshot</span></div>
+<div class="frame"><span class="frame-time">17-20s</span><span class="frame-desc"><strong>Logo + "Follow for launch date 🚀"</strong></span></div>
 </div>
-<div class="caption-box" style="margin-top:10px">
+<div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">Name one job site in Tanzania that does all 3. I'll wait. 😏
 
@@ -367,9 +411,9 @@ Audio: Trending counting/list audio</div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform story">Stories</span><span class="post-type">2 Stories</span></div>
+<div class="post-header"><span class="platform story">Stories</span><span class="post-label">2 Stories</span></div>
 <div class="stories-row">
-<div class="story-card"><strong>Story 1</strong>Close-up of job card UI on phone. Emoji slider sticker: "Would you use an app that looks like this? 🔥 or 🗑️"</div>
+<div class="story-card"><strong>Story 1</strong>Close-up of job card UI. Emoji slider: "Would you use this? 🔥 or 🗑️"</div>
 <div class="story-card"><strong>Story 2</strong>Question sticker: "What feature matters most to you in a job app?"</div>
 </div>
 </div>
@@ -381,14 +425,15 @@ Audio: Trending counting/list audio</div>
 <div class="day-card">
 <div class="day-header">
 <div class="day-num"><span>05</span></div>
-<div><div class="day-title">CV Builder Spotlight</div><div class="day-subtitle">Showcase the signature feature</div></div>
+<div class="day-info"><div class="day-title">CV Builder Spotlight</div><div class="day-subtitle">Showcase the signature feature</div></div>
+<div class="day-types"><span class="day-type static">Static</span><span class="day-type motion">Motion</span><span class="day-type stories">Stories</span></div>
 </div>
 <div class="day-body">
 
 <div class="post">
-<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="post-type">Feed Post · Portrait</span></div>
+<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="content-type static">Static Poster</span><span class="post-label">Portrait 1080×1350</span></div>
 <div class="post-title">App Feature Showcase — 3 Phone Mockups</div>
-<div class="post-desc">Use the portrait feature showcase design showing home screen, job detail, and CV builder.</div>
+<div class="design-ref">🎨 Use: Feature Showcase portrait poster from ChatGPT</div>
 <div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">Your CV. Built in 5 minutes.
@@ -398,45 +443,41 @@ Most people in Tanzania don't have a professional CV — not because they lack s
 GetFursa's CV builder walks you through it step by step:
 → Basic info
 → Professional summary (we'll help you write it)
-→ Experience
-→ Education
+→ Experience & Education
 → Skills
 
-No templates to download. No formatting headaches. Just answer a few questions and your CV is ready.
+No templates. No formatting headaches.
 
-<span class="hashtags">#GetFursa #CVBuilder #JobsTanzania #CareerTips #KaziTanzania #Resume</span></div>
+<span class="hashtags">#GetFursa #CVBuilder #JobsTanzania #CareerTips #KaziTanzania</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform tt">TikTok</span><span class="post-type">Video · 30 sec</span></div>
-<div class="post-title">CV Builder Walkthrough</div>
-<div class="script-box">
-<div class="script-label">🎬 Script</div>
-<div class="script-text">Text: "I built a CV builder inside a job app. Here's what it looks like."
-
-[Screen record scrolling through CV builder steps:
-Step 1: Personal info → Step 2: Summary → Step 3: Experience → Step 5: Skills → Step 6: Final preview]
-
-Text: "From zero to professional CV in under 5 minutes"
-Text: "GetFursa. Coming soon."
-
-Audio: Chill lo-fi or satisfying UI sound</div>
+<div class="post-header"><span class="platform tt">TikTok</span><span class="content-type motion">Motion Graphic</span><span class="post-label">25 sec</span></div>
+<div class="post-title">CV Builder Step-by-Step Animation</div>
+<div class="storyboard">
+<div class="storyboard-label">🎬 CapCut Storyboard</div>
+<div class="frame"><span class="frame-time">0-3s</span><span class="frame-desc"><strong>Text on dark bg:</strong> "I built a CV builder inside a job app" — typewriter effect</span></div>
+<div class="frame"><span class="frame-time">3-8s</span><span class="frame-desc"><strong>Screenshot Step 1</strong> (personal info) — zoom in with soft ken burns, text overlay "Step 1: Basic Info"</span></div>
+<div class="frame"><span class="frame-time">8-13s</span><span class="frame-desc"><strong>Slide transition</strong> to Step 2 screenshot (summary) — text overlay "Step 2: Tell us about you"</span></div>
+<div class="frame"><span class="frame-time">13-18s</span><span class="frame-desc"><strong>Slide transition</strong> to Step 5 (skills chips) — text overlay "Step 3: Add your skills"</span></div>
+<div class="frame"><span class="frame-time">18-22s</span><span class="frame-desc"><strong>Final CV preview</strong> screenshot — zoom out reveal, text: "Done. Under 5 minutes."</span></div>
+<div class="frame"><span class="frame-time">22-25s</span><span class="frame-desc"><strong>Logo + "GetFursa · Coming Soon"</strong></span></div>
 </div>
-<div class="caption-box" style="margin-top:10px">
+<div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
-<div class="caption-text">No Word. No template downloads. Just answer questions and your CV writes itself. 📄
+<div class="caption-text">No Word. No template downloads. Just answer questions and your CV writes itself 📄
 
 <span class="hashtags">#GetFursa #CVBuilder #CareerTok #JobSearch #Tanzania</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform story">Stories</span><span class="post-type">3 Stories</span></div>
+<div class="post-header"><span class="platform story">Stories</span><span class="post-label">3 Stories</span></div>
 <div class="stories-row">
-<div class="story-card"><strong>Story 1</strong>Screen recording of CV builder flow (15 sec, speed up)</div>
-<div class="story-card"><strong>Story 2</strong>"Did you know? 60% of job seekers in Tanzania don't have a digital CV. We're fixing that."</div>
-<div class="story-card"><strong>Story 3</strong>Quiz sticker: "How long to build a CV on GetFursa?" 30 min / 10 min / 5 min (answer: 5 min)</div>
+<div class="story-card"><strong>Story 1</strong>Screen recording of CV builder flow (speed up to 15 sec)</div>
+<div class="story-card"><strong>Story 2</strong>"60% of job seekers in TZ don't have a digital CV. We're fixing that."</div>
+<div class="story-card"><strong>Story 3</strong>Quiz sticker: "How long to build a CV on GetFursa?" 30min / 10min / 5min</div>
 </div>
 </div>
 
@@ -447,59 +488,61 @@ Audio: Chill lo-fi or satisfying UI sound</div>
 <div class="day-card">
 <div class="day-header">
 <div class="day-num"><span>06</span></div>
-<div><div class="day-title">Behind the Scenes</div><div class="day-subtitle">Personal story, build connection</div></div>
+<div class="day-info"><div class="day-title">The Founder Story</div><div class="day-subtitle">Personal connection — only on-camera day this week</div></div>
+<div class="day-types"><span class="day-type video">Video</span><span class="day-type static">Static</span><span class="day-type stories">Stories</span></div>
 </div>
 <div class="day-body">
 
 <div class="post">
-<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="post-type">Feed Post</span></div>
-<div class="post-title">Solo Developer Story</div>
-<div class="post-desc">Casual photo of your desk setup, laptop with code, phone with app. Authentic, not polished.</div>
+<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="content-type static">Static Photo</span></div>
+<div class="post-title">Desk Setup / Founder Photo</div>
+<div class="post-desc">Casual photo of your desk — laptop with code, phone with app. Authentic, not polished. A real human is building this.</div>
 <div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">No big team. No investors. Just one developer building something Tanzania needs.
 
 GetFursa started with a simple question: "Why is finding a job in Tanzania so painful?"
 
-Every job site is desktop-only. No apps. Bad search. No salary info. Outdated listings.
+Every job site is desktop-only. No apps. Bad search. No salary info.
 
 So I'm building the app I wish existed.
 
 Launching soon. And it's free.
 
-<span class="hashtags">#GetFursa #BuildInPublic #IndieHacker #TanzaniaJobs #SoloDeveloper #StartupLife</span></div>
+<span class="hashtags">#GetFursa #BuildInPublic #IndieHacker #TanzaniaJobs #SoloDeveloper</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform tt">TikTok</span><span class="post-type">Video · 30-45 sec</span></div>
-<div class="post-title">Day in the Life — Building a Startup in Tanzania</div>
+<div class="post-header"><span class="platform tt">TikTok</span><span class="content-type video">On-Camera Video</span><span class="post-label">30-45 sec</span></div>
+<div class="post-title">Day in the Life — Building GetFursa</div>
+<div class="post-desc">This is the ONE day you film yourself. Batch-film this with Day 9 and 10 videos too.</div>
 <div class="script-box">
-<div class="script-label">🎬 Script</div>
+<div class="script-label">🎬 Video Script</div>
 <div class="script-text">Text: "Day in the life building a startup in Tanzania 🇹🇿"
 
-[Morning: coffee/chai, sitting down at desk]
-[Coding montage: VS Code, terminal, Flutter hot reload]
+[Morning: coffee/chai, sitting at desk]
+[Coding montage: VS Code, terminal, hot reload]
 [Testing on phone: scrolling through jobs]
-[Finding a bug: frustrated → fixing it → works!]
-[End of day: app running smoothly, smile]
+[Bug found: frustrated → fixed → smile]
+[End: app running smoothly]
 
-Text: "GetFursa. One person. One app. Every job in Tanzania."
+Text: "GetFursa. One person. One app."
 Audio: Trending "day in my life" audio</div>
 </div>
-<div class="caption-box" style="margin-top:10px">
+<div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
-<div class="caption-text">Solo dev life in Dar 🇹🇿 Building GetFursa one feature at a time. Almost launch time.
+<div class="caption-text">Solo dev life in Dar 🇹🇿 Building GetFursa one feature at a time.
 
 <span class="hashtags">#GetFursa #DayInMyLife #DevLife #BuildInPublic #Tanzania</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform story">Stories</span><span class="post-type">2 Stories</span></div>
+<div class="post-header"><span class="platform story">Stories</span><span class="post-label">2 Stories</span></div>
 <div class="stories-row">
-<div class="story-card"><strong>Story 1</strong>Selfie or desk photo. Text: "Building GetFursa. Day 6. Almost there 💪"</div>
-<div class="story-card"><strong>Story 2</strong>Countdown sticker set to launch date. Text: "Mark your calendars 📅"</div>
+<div class="story-card"><strong>Story 1</strong>Selfie or desk photo. "Building GetFursa. Day 6. Almost there 💪"</div>
+<div class="story-card"><strong>Story 2</strong>Countdown sticker set to launch date. "Mark your calendars 📅"</div>
 </div>
 </div>
 
@@ -510,14 +553,15 @@ Audio: Trending "day in my life" audio</div>
 <div class="day-card">
 <div class="day-header">
 <div class="day-num"><span>07</span></div>
-<div><div class="day-title">Social Proof</div><div class="day-subtitle">Show scale, build credibility with numbers</div></div>
+<div class="day-info"><div class="day-title">Social Proof</div><div class="day-subtitle">Credibility with numbers</div></div>
+<div class="day-types"><span class="day-type static">Static</span><span class="day-type motion">Motion</span><span class="day-type stories">Stories</span></div>
 </div>
 <div class="day-body">
 
 <div class="post">
-<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="post-type">Feed Post</span></div>
-<div class="post-title">Stats / Numbers Poster</div>
-<div class="post-desc">Use the stats poster design: 500+ jobs, 50+ companies, 15+ cities.</div>
+<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="content-type static">Static Poster</span></div>
+<div class="post-title">Stats Poster — The Numbers</div>
+<div class="design-ref">🎨 Use: Stats poster from ChatGPT (500+ jobs, 50+ companies, 15+ cities)</div>
 <div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">GetFursa by the numbers:
@@ -528,26 +572,25 @@ Audio: Trending "day in my life" audio</div>
 📄 CV builder included
 🔔 Smart job alerts
 
-All in one free app. Launching this week. Are you ready? 🚀
+All in one free app. Launching this week 🚀
 
-<span class="hashtags">#GetFursa #JobsTanzania #KaziTanzania #HiringTanzania #CareerTZ #LaunchingSoon</span></div>
+<span class="hashtags">#GetFursa #JobsTanzania #KaziTanzania #HiringTanzania #LaunchingSoon</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform tt">TikTok</span><span class="post-type">Video · 15 sec</span></div>
-<div class="post-title">Stats Reveal</div>
-<div class="script-box">
-<div class="script-label">🎬 Script</div>
-<div class="script-text">[Dark screen, text appears one line at a time with impact sound effects]
-
-"500+ jobs" → "50+ companies" → "15+ cities" → "1 app" → "0 cost"
-
-"GetFursa" → "This week 🚀"
-
-Audio: Dramatic reveal / bass drops on each number</div>
+<div class="post-header"><span class="platform tt">TikTok</span><span class="content-type motion">Motion Graphic</span><span class="post-label">12 sec</span></div>
+<div class="post-title">Counting Stats Animation</div>
+<div class="storyboard">
+<div class="storyboard-label">🎬 CapCut Storyboard</div>
+<div class="frame"><span class="frame-time">0-2s</span><span class="frame-desc"><strong>Dark bg.</strong> Number counter animates: 0 → 500+ — text below: "jobs" — bass hit sound</span></div>
+<div class="frame"><span class="frame-time">2-4s</span><span class="frame-desc"><strong>Slide up.</strong> Counter: 0 → 50+ — "companies" — bass hit</span></div>
+<div class="frame"><span class="frame-time">4-6s</span><span class="frame-desc"><strong>Slide up.</strong> Counter: 0 → 15+ — "cities" — bass hit</span></div>
+<div class="frame"><span class="frame-time">6-8s</span><span class="frame-desc"><strong>Slide up.</strong> Big text: "1" — "app" — bass hit</span></div>
+<div class="frame"><span class="frame-time">8-10s</span><span class="frame-desc"><strong>Slide up.</strong> Big text: "0" — "cost" — bass hit. Pause for impact.</span></div>
+<div class="frame"><span class="frame-time">10-12s</span><span class="frame-desc"><strong>GetFursa logo</strong> + "This week 🚀"</span></div>
 </div>
-<div class="caption-box" style="margin-top:10px">
+<div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">The numbers don't lie. GetFursa drops this week 🔥
 
@@ -556,11 +599,11 @@ Audio: Dramatic reveal / bass drops on each number</div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform story">Stories</span><span class="post-type">3 Stories</span></div>
+<div class="post-header"><span class="platform story">Stories</span><span class="post-label">3 Stories</span></div>
 <div class="stories-row">
-<div class="story-card"><strong>Story 1</strong>"We've been quietly crawling every major job site in Tanzania for weeks" + 🤯</div>
-<div class="story-card"><strong>Story 2</strong>Share stats post with "Real numbers. Real jobs. Real app."</div>
-<div class="story-card"><strong>Story 3</strong>Question sticker: "What's the first job you're going to search for on GetFursa?"</div>
+<div class="story-card"><strong>Story 1</strong>"We've been quietly crawling every job site in Tanzania for weeks" + 🤯</div>
+<div class="story-card"><strong>Story 2</strong>Reshare stats post. "Real numbers. Real jobs."</div>
+<div class="story-card"><strong>Story 3</strong>Question sticker: "What's the first job you'll search for?"</div>
 </div>
 </div>
 
@@ -571,16 +614,26 @@ Audio: Dramatic reveal / bass drops on each number</div>
 <div class="day-card">
 <div class="day-header">
 <div class="day-num"><span>08</span></div>
-<div><div class="day-title">First Look Walkthrough</div><div class="day-subtitle">Show the real app running — no mockups</div></div>
+<div class="day-info"><div class="day-title">First Look</div><div class="day-subtitle">App walkthrough — show the real product</div></div>
+<div class="day-types"><span class="day-type motion">Motion</span><span class="day-type stories">Stories</span></div>
 </div>
 <div class="day-body">
 
 <div class="post">
-<div class="post-header"><span class="platform ig">Instagram</span><span class="post-type">Reel · 30 sec</span></div>
-<div class="post-title">App Walkthrough Reel</div>
-<div class="post-desc">Screen recording of the actual app running on your phone. Cross-post to Facebook.</div>
+<div class="post-header"><span class="platform ig">Instagram</span><span class="platform tt">TikTok</span><span class="platform fb">Facebook</span><span class="content-type motion">Motion Graphic</span><span class="post-label">Reel · 30 sec</span></div>
+<div class="post-title">App Walkthrough — Animated Screen Recording</div>
+<div class="post-desc">Screen record the app, then add zoom/pan animations and text overlays in CapCut. Post as Reel on IG and as TikTok.</div>
+<div class="storyboard">
+<div class="storyboard-label">🎬 CapCut Storyboard</div>
+<div class="frame"><span class="frame-time">0-3s</span><span class="frame-desc"><strong>Text on dark bg:</strong> "First look at GetFursa 👀" — scale up animation</span></div>
+<div class="frame"><span class="frame-time">3-8s</span><span class="frame-desc"><strong>Phone frame overlay</strong> on screen recording: home screen → scroll job cards. Text: "Browse 500+ jobs"</span></div>
+<div class="frame"><span class="frame-time">8-14s</span><span class="frame-desc"><strong>Tap a job</strong> → detail page. Zoom into salary. Text: "See salary upfront"</span></div>
+<div class="frame"><span class="frame-time">14-20s</span><span class="frame-desc"><strong>Search screen</strong> → type "accountant" → results. Text: "Smart search"</span></div>
+<div class="frame"><span class="frame-time">20-26s</span><span class="frame-desc"><strong>CV builder</strong> → quick scroll through steps. Text: "Build your CV in minutes"</span></div>
+<div class="frame"><span class="frame-time">26-30s</span><span class="frame-desc"><strong>Logo + "Launching in 2 days"</strong> — teal bg, clean</span></div>
+</div>
 <div class="caption-box">
-<div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
+<div class="caption-label">📋 IG Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">First look at GetFursa 👀
 
 This is what job searching in Tanzania should feel like:
@@ -588,47 +641,18 @@ This is what job searching in Tanzania should feel like:
 → Every job in one place
 → Save jobs, get alerts, build your CV
 
-Launching in 2 days. 🚀
+Launching in 2 days 🚀 Drop a 🔥 if you'd use this.
 
-Drop a 🔥 if you'd use this.
-
-<span class="hashtags">#GetFursa #JobsTanzania #AppLaunch #KaziTanzania #FirstLook #MobileApp</span></div>
+<span class="hashtags">#GetFursa #JobsTanzania #AppLaunch #KaziTanzania #FirstLook</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform tt">TikTok</span><span class="post-type">Video · 30-40 sec</span></div>
-<div class="post-title">Full App Demo</div>
-<div class="script-box">
-<div class="script-label">🎬 Script</div>
-<div class="script-text">Text: "First look at GetFursa — Tanzania's job search app"
-
-[Screen record on phone, smooth and steady:]
-1. Open app → welcome screen (2 sec)
-2. Home screen → scroll through job cards (5 sec)
-3. Tap a job → detail page with salary (5 sec)
-4. Search → type "accountant" → results (5 sec)
-5. Categories → tap "IT & Technology" (3 sec)
-6. Profile → CV builder preview (3 sec)
-
-Text: "Every job. One app. Free."
-Text: "Launching in 2 days"
-Audio: Clean tech/UI showcase audio</div>
-</div>
-<div class="caption-box" style="margin-top:10px">
-<div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
-<div class="caption-text">No mockups. No Figma. This is the real app running on a real phone. GetFursa drops in 2 days 🇹🇿🔥
-
-<span class="hashtags">#GetFursa #AppDemo #JobsTanzania #CareerTok</span></div>
-</div>
-</div>
-
-<div class="post">
-<div class="post-header"><span class="platform story">Stories</span><span class="post-type">3 Stories</span></div>
+<div class="post-header"><span class="platform story">Stories</span><span class="post-label">3 Stories</span></div>
 <div class="stories-row">
-<div class="story-card"><strong>Story 1</strong>Repost your reel with "THE APP IS REAL 🔥"</div>
-<div class="story-card"><strong>Story 2</strong>Close-up of one feature (search or job cards). Text: "Look at those job cards 😍"</div>
-<div class="story-card"><strong>Story 3</strong>"2 days. Are you ready?" with Countdown sticker</div>
+<div class="story-card"><strong>Story 1</strong>Repost reel: "THE APP IS REAL 🔥"</div>
+<div class="story-card"><strong>Story 2</strong>Close-up screen recording of job cards scrolling. "Look at these 😍"</div>
+<div class="story-card"><strong>Story 3</strong>"2 days. Are you ready?" + Countdown sticker</div>
 </div>
 </div>
 
@@ -639,13 +663,15 @@ Audio: Clean tech/UI showcase audio</div>
 <div class="day-card">
 <div class="day-header">
 <div class="day-num"><span>09</span></div>
-<div><div class="day-title">Countdown Hype</div><div class="day-subtitle">Maximum anticipation — launch is tomorrow</div></div>
+<div class="day-info"><div class="day-title">Countdown Hype</div><div class="day-subtitle">Maximum anticipation — tomorrow is the day</div></div>
+<div class="day-types"><span class="day-type static">Static</span><span class="day-type video">Video</span><span class="day-type stories">Stories</span></div>
 </div>
 <div class="day-body">
 
 <div class="post">
-<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="post-type">Feed Post</span></div>
+<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="content-type static">Static Poster</span></div>
 <div class="post-title">"Tomorrow" Announcement</div>
+<div class="design-ref">🎨 Use: Countdown poster from Content Studio (dark mode, "1 DAY")</div>
 <div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">Tomorrow.
@@ -654,42 +680,42 @@ GetFursa launches tomorrow.
 
 One app that changes how Tanzania searches for jobs.
 
-Turn on notifications. Tell your friends. Set an alarm. ⏰
+Turn on notifications. Tell your friends. Set an alarm ⏰
 
 @getfursa 🚀
 
-<span class="hashtags">#GetFursa #JobsTanzania #LaunchDay #Tomorrow #KaziTanzania #AppLaunch</span></div>
+<span class="hashtags">#GetFursa #JobsTanzania #LaunchDay #Tomorrow #KaziTanzania</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform tt">TikTok</span><span class="post-type">Video · 15 sec</span></div>
-<div class="post-title">Hype Video</div>
+<div class="post-header"><span class="platform tt">TikTok</span><span class="content-type video">On-Camera Video</span><span class="post-label">15 sec</span></div>
+<div class="post-title">Hype Celebration</div>
+<div class="post-desc">Quick on-camera clip. Film this during your Day 6 batch session.</div>
 <div class="script-box">
-<div class="script-label">🎬 Script</div>
+<div class="script-label">🎬 Video Script</div>
 <div class="script-text">[You looking at camera, building energy]
+Text: "When GetFursa launches tomorrow..."
 
-Text: "When GetFursa launches tomorrow and Tanzania finally has a real job app"
-
-[Cut to celebration — dance, fist pump, big smile]
-
+[Cut to celebration — fist pump, smile]
 Text: "Tomorrow. @getfursa"
+
 Audio: Trending hype/celebration audio</div>
 </div>
-<div class="caption-box" style="margin-top:10px">
+<div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">TOMORROW 🚀
 
-<span class="hashtags">#GetFursa #LaunchDay #JobsTanzania #Tanzania</span></div>
+<span class="hashtags">#GetFursa #LaunchDay #JobsTanzania</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform story">Stories</span><span class="post-type">3 Stories</span></div>
+<div class="post-header"><span class="platform story">Stories</span><span class="post-label">3 Stories</span></div>
 <div class="stories-row">
-<div class="story-card"><strong>Story 1</strong>Countdown design — "1 DAY" with Countdown sticker</div>
-<div class="story-card"><strong>Story 2</strong>Selfie video: "Hey, tomorrow is launch day. I've been working on this for weeks and I can't wait for you to try it."</div>
-<div class="story-card"><strong>Story 3</strong>"Share this story if you know someone looking for a job right now"</div>
+<div class="story-card"><strong>Story 1</strong>"1 DAY" countdown poster + Countdown sticker</div>
+<div class="story-card"><strong>Story 2</strong>Selfie video: "Tomorrow is launch day. I can't wait for you to try it."</div>
+<div class="story-card"><strong>Story 3</strong>"Share this if you know someone looking for a job 🙏"</div>
 </div>
 </div>
 
@@ -697,17 +723,18 @@ Audio: Trending hype/celebration audio</div>
 </div>
 
 <!-- DAY 10 -->
-<div class="day-card" style="border:2px solid var(--teal)">
-<div class="day-header" style="background:rgba(13,148,136,0.03)">
+<div class="day-card launch-highlight">
+<div class="day-header">
 <div class="day-num" style="background:var(--teal)"><span style="color:#fff">10</span></div>
-<div><div class="day-title">🚀 LAUNCH DAY</div><div class="day-subtitle">Go live — maximum effort, all platforms</div></div>
+<div class="day-info"><div class="day-title">🚀 LAUNCH DAY</div><div class="day-subtitle">Go live — all hands, all platforms</div></div>
+<div class="day-types"><span class="day-type static">Static</span><span class="day-type motion">Motion</span><span class="day-type video">Video</span><span class="day-type stories">Stories</span></div>
 </div>
 <div class="day-body">
 
 <div class="post">
-<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="post-type">Feed Post</span></div>
-<div class="post-title">Launch Announcement — "GetFursa IS LIVE"</div>
-<div class="post-desc">Use the Launch Day poster design. Include App Store and Play Store links.</div>
+<div class="post-header"><span class="platform ig">Instagram</span><span class="platform fb">Facebook</span><span class="content-type static">Static Poster</span></div>
+<div class="post-title">Launch Poster — "GetFursa IS LIVE"</div>
+<div class="design-ref">🎨 Use: Launch Day poster from ChatGPT</div>
 <div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">IT'S HERE 🚀
@@ -725,51 +752,62 @@ Download free right now:
 📲 [App Store link]
 📲 [Play Store link]
 
-Tag someone who needs a job. Tag someone who's hiring. Let's go. 🇹🇿
+Tag someone who needs a job. Tag someone who's hiring. Let's go 🇹🇿
 
-<span class="hashtags">#GetFursa #NowLive #JobsTanzania #KaziTanzania #AppLaunch #Download #TanzaniaJobs #Hiring</span></div>
+<span class="hashtags">#GetFursa #NowLive #JobsTanzania #KaziTanzania #AppLaunch #Download #Hiring</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform tt">TikTok</span><span class="post-type">Video · 20-30 sec</span></div>
-<div class="post-title">Launch Announcement — High Energy</div>
-<div class="script-box">
-<div class="script-label">🎬 Script</div>
-<div class="script-text">[You holding phone, big smile]
-Text: "It's official. GetFursa is LIVE 🚀"
-
-[Show app opening: splash → home → scroll jobs]
-Text: "Every job in Tanzania. One app."
-
-[Quick feature montage: job cards, search, CV builder, notifications]
-Text: "Download FREE right now"
-Text: "Link in bio 📲"
-
-Audio: Celebration / high energy audio</div>
+<div class="post-header"><span class="platform tt">TikTok</span><span class="content-type motion">Motion Graphic</span><span class="post-label">20 sec</span></div>
+<div class="post-title">Launch Reveal Animation</div>
+<div class="storyboard">
+<div class="storyboard-label">🎬 CapCut Storyboard</div>
+<div class="frame"><span class="frame-time">0-3s</span><span class="frame-desc"><strong>Dark screen.</strong> Text types in: "It's official." — pause for beat</span></div>
+<div class="frame"><span class="frame-time">3-6s</span><span class="frame-desc"><strong>Logo reveal</strong> with particle/glow effect. Text: "GetFursa is LIVE 🚀" — celebration sound</span></div>
+<div class="frame"><span class="frame-time">6-12s</span><span class="frame-desc"><strong>Quick montage</strong> of app screenshots with zoom/slide transitions: home → search → job detail → CV builder (1.5 sec each)</span></div>
+<div class="frame"><span class="frame-time">12-16s</span><span class="frame-desc"><strong>Text slam:</strong> "Every job." → "One app." → "Free." — each word slams in</span></div>
+<div class="frame"><span class="frame-time">16-20s</span><span class="frame-desc"><strong>Download CTA</strong> + App Store/Play Store badges + "Link in bio 📲"</span></div>
 </div>
-<div class="caption-box" style="margin-top:10px">
+<div class="caption-box">
 <div class="caption-label">📋 Caption <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
-<div class="caption-text">🚀🚀🚀 GETFURSA IS LIVE! Download free right now. Link in bio. Tag someone who needs this!
+<div class="caption-text">🚀🚀🚀 GETFURSA IS LIVE! Download free. Link in bio. Tag someone who needs this!
 
-<span class="hashtags">#GetFursa #NowLive #JobsTanzania #AppLaunch #Tanzania #CareerTok</span></div>
+<span class="hashtags">#GetFursa #NowLive #JobsTanzania #AppLaunch #CareerTok</span></div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform story">Stories</span><span class="post-type">5 Stories — go heavy!</span></div>
+<div class="post-header"><span class="platform ig">Instagram</span><span class="content-type video">On-Camera Reel</span><span class="post-label">30 sec</span></div>
+<div class="post-title">Selfie Launch Announcement</div>
+<div class="post-desc">Film this in the morning of launch day. Real, genuine excitement.</div>
+<div class="script-box">
+<div class="script-label">🎬 Video Script</div>
+<div class="script-text">[You holding phone, looking at camera]
+"GetFursa is officially live! I built this app from scratch, solo, for Tanzania."
+
+[Show app on phone]
+"500+ jobs, CV builder, job alerts — all free."
+
+[Big smile]
+"Go download it right now. Link in bio. Let's go! 🇹🇿"</div>
+</div>
+</div>
+
+<div class="post">
+<div class="post-header"><span class="platform story">Stories</span><span class="post-label">5 Stories — go heavy!</span></div>
 <div class="stories-row">
-<div class="story-card"><strong>Story 1</strong>"🚀 WE'RE LIVE" on teal background. Link sticker to App Store.</div>
-<div class="story-card"><strong>Story 2</strong>Screen record: opening app fresh, scrolling real jobs. "This is real. Download now."</div>
-<div class="story-card"><strong>Story 3</strong>Selfie video: "GetFursa is officially live! I built this from scratch for Tanzania."</div>
-<div class="story-card"><strong>Story 4</strong>Reshare launch post. "LINK IN BIO 📲"</div>
-<div class="story-card"><strong>Story 5</strong>"Share this with someone looking for a job right now 🙏"</div>
+<div class="story-card"><strong>Story 1</strong>"🚀 WE'RE LIVE" teal bg + Link sticker to store</div>
+<div class="story-card"><strong>Story 2</strong>Screen record: opening app, scrolling real jobs. "Download now."</div>
+<div class="story-card"><strong>Story 3</strong>Selfie video: "It's live! Go try it!"</div>
+<div class="story-card"><strong>Story 4</strong>Reshare launch post: "LINK IN BIO 📲"</div>
+<div class="story-card"><strong>Story 5</strong>"Share with someone looking for a job 🙏"</div>
 </div>
 </div>
 
 <div class="post">
-<div class="post-header"><span class="platform wa">WhatsApp</span><span class="post-type">Broadcast Message</span></div>
-<div class="post-title">WhatsApp Broadcast</div>
+<div class="post-header"><span class="platform wa">WhatsApp</span><span class="post-label">Broadcast</span></div>
+<div class="post-title">WhatsApp Broadcast Message</div>
 <div class="caption-box">
 <div class="caption-label">📋 Message <button class="copy-btn" onclick="copyCaption(this)">Copy</button></div>
 <div class="caption-text">🚀 GetFursa is LIVE!
@@ -789,30 +827,38 @@ Share with anyone looking for a job! 🇹🇿</div>
 </div>
 </div>
 
-<!-- TIPS -->
+<!-- Tips -->
 <div class="tips-section">
 <h3>Production Tips</h3>
 <div class="tip-grid">
 <div class="tip-item">
-<h4>🎬 TikTok Filming</h4>
-<p>Film vertically. Good lighting (face a window). Large text on screen. Add captions. Post 6-9 PM EAT. First 2 seconds must hook.</p>
+<h4>📐 Static Posters</h4>
+<p>Use your Content Studio (HTML tool) for Jobs of the Week and Career Tips. Use ChatGPT image gen for custom posters (Coming Soon, Launch Day, Feature Showcase).</p>
 </div>
 <div class="tip-item">
-<h4>📱 Instagram Stories</h4>
-<p>Use native stickers (polls, questions, countdowns) — Instagram boosts them. Mix video + static. Reply to poll results next day. Use location tag "Tanzania".</p>
+<h4>🎬 Motion Graphics in CapCut</h4>
+<p>Import static screenshots → add zoom/pan (ken burns) → add text with "slam" or "typewriter" animations → add trending audio → export 1080×1920 vertical.</p>
 </div>
 <div class="tip-item">
 <h4>⏰ Batch Production</h4>
-<p>Film all 10 TikToks in 2-3 sessions. Change your shirt between takes. Create all poster designs in one sitting. Schedule IG posts via Meta Business Suite.</p>
+<p>Create all static posters in 1 session. Create all 7 motion graphics in 1-2 CapCut sessions. Film all 3 on-camera videos in one sitting (change shirts between takes).</p>
 </div>
 <div class="tip-item">
-<h4>📊 Best Posting Times</h4>
-<p>Tanzania audience: 6-9 PM EAT weekdays, 10 AM-12 PM weekends. TikTok: post daily. Instagram feed: 3-4x/week. Stories: 2-3 per day.</p>
+<h4>📱 Best Posting Times</h4>
+<p>Tanzania: 6-9 PM EAT weekdays, 10AM-12PM weekends. TikTok: daily. IG feed: 3-4x/week. Stories: 2-3/day. Schedule IG posts via Meta Business Suite (free).</p>
+</div>
+<div class="tip-item">
+<h4>🎵 CapCut Audio Tips</h4>
+<p>Use CapCut's built-in audio library. Search "reveal", "motivation", "bass drop" for impact sounds. Match bass hits to text slams. Keep audio trending — check TikTok for current sounds.</p>
+</div>
+<div class="tip-item">
+<h4>📊 Content Mix Rationale</h4>
+<p>6 static + 7 motion + 3 video = 50/50 split. Motion graphics get higher engagement than static on TikTok. Static carousels get highest saves on Instagram. Video builds trust.</p>
 </div>
 </div>
 </div>
 
-<!-- HASHTAGS -->
+<!-- Hashtags -->
 <div class="hashtag-section">
 <h3>Hashtag Sets — tap to copy</h3>
 <div class="hashtag-group">
@@ -853,21 +899,11 @@ Share with anyone looking for a job! 🇹🇿</div>
 
 <script>
 function copyCaption(btn){
-  const text = btn.closest('.caption-box').querySelector('.caption-text').innerText;
-  navigator.clipboard.writeText(text).then(()=>{
-    btn.textContent='Copied!';
-    btn.classList.add('copied');
-    setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('copied')},2000);
-  });
+const text=btn.closest('.caption-box').querySelector('.caption-text').innerText;
+navigator.clipboard.writeText(text).then(()=>{btn.textContent='Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('copied')},2000)});
 }
 function copyTag(btn){
-  navigator.clipboard.writeText(btn.textContent).then(()=>{
-    const orig=btn.textContent;
-    btn.textContent='Copied!';
-    btn.style.background='var(--teal)';
-    btn.style.color='#fff';
-    setTimeout(()=>{btn.textContent=orig;btn.style.background='';btn.style.color=''},1500);
-  });
+navigator.clipboard.writeText(btn.textContent).then(()=>{const o=btn.textContent;btn.textContent='Copied!';btn.style.background='var(--teal)';btn.style.color='#fff';setTimeout(()=>{btn.textContent=o;btn.style.background='';btn.style.color=''},1500)});
 }
 </script>
 </body>
